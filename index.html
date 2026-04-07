@@ -3,228 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mestres do Avatar - Guia Definitivo</title>
+    <title>Mestres do Avatar | O Método Faceless</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
+        /* CSS Reset e Variáveis estilo Apple Dark */
         :root {
-            --bg-color: #0d0d0d;
-            --text-main: #f0f0f0;
-            --text-muted: #a0a0a0;
-            --accent-neon: #00f0ff; /* Ciano Neon para o tom Tech */
-            --card-bg: #1a1a1a;
-            --border-radius: 12px;
+            --bg-dark: #000000;
+            --text-light: #f5f5f7;
+            --text-muted: #86868b;
+            --accent: #2997ff; /* Azul Apple */
+            --accent-hover: #147ce5;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Animações Suaves */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Container Padrão */
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
-        /* Tipografia */
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #ffffff;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
             margin-bottom: 10px;
-            letter-spacing: -1px;
-            background: -webkit-linear-gradient(45deg, #ffffff, var(--accent-neon));
+            background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Botão Premium */
+        .cta-btn {
+            background-color: var(--text-light);
+            color: var(--bg-dark);
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* SEÇÃO DE PROVAS (Glassmorphism) */
+        .proof-section {
+            padding: 100px 0;
             text-align: center;
+        }
+
+        .proof-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .proof-section p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+        }
+
+        .grid-proofs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .glass-card img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* SEÇÃO SOBRE O PRODUTO */
+        .product-section {
+            padding: 100px 0;
+            background-color: #050505;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .product-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .product-text p {
             font-size: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 50px;
-            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-neon);
-            padding-bottom: 10px;
-            margin-top: 50px;
-            display: inline-block;
+        .feature-list {
+            list-style: none;
+            padding: 0;
         }
 
-        h3 {
-            font-size: 1.3rem;
-            color: var(--accent-neon);
-            margin-top: 30px;
+        .feature-list li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
         }
 
-        p, li {
-            font-size: 1.05rem;
-            color: #cccccc;
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
-        ul {
-            padding-left: 20px;
+        /* FINAL CTA */
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #050505 0%, #111 100%);
         }
 
-        li {
-            margin-bottom: 10px;
-        }
-
-        strong {
-            color: #ffffff;
-        }
-
-        /* Caixas de Destaque */
-        .prompt-box {
-            background-color: var(--card-bg);
-            border-left: 4px solid var(--accent-neon);
-            padding: 20px;
-            border-radius: 4px 8px 8px 4px;
-            font-family: monospace;
-            font-size: 1rem;
-            color: #e0e0e0;
+        .price-tag {
+            font-size: 4rem;
+            font-weight: 800;
             margin: 20px 0;
+            background: -webkit-linear-gradient(45deg, #2997ff, #00f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Placeholders de Imagem para seus Prints */
-        .img-placeholder {
-            background-color: #222;
-            border: 2px dashed #444;
-            border-radius: var(--border-radius);
-            padding: 40px;
-            text-align: center;
-            margin: 30px 0;
-            color: var(--text-muted);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Rodapé / CTA */
-        .cta-box {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            border: 1px solid #333;
-            text-align: center;
-            padding: 40px 20px;
-            border-radius: var(--border-radius);
-            margin-top: 60px;
-        }
-
-        .cta-box h2 {
-            border: none;
-            margin-top: 0;
-            color: var(--accent-neon);
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; }
+            .product-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Mestres do Avatar</h1>
-            <div class="subtitle">O Guia Definitivo de Motion Control e Viralização Faceless no TikTok</div>
-        </header>
+    <section class="hero">
+        <div class="container">
+            <h1 class="animate-up">O fim da vergonha.</h1>
+            <p class="animate-up delay-1">Viralize e venda no TikTok com avatares realistas.<br>Sem expor o seu rosto. Sem precisar gravar.</p>
+            <a href="#comprar" class="cta-btn animate-up delay-2">Quero dominar o Método</a>
+        </div>
+    </section>
 
-        <section>
-            <h2>🛑 O Fim da Vergonha</h2>
-            <p>Se você clicou neste guia, você já entendeu o jogo: a atenção é a nova moeda, mas a exposição é o preço que nem todo mundo quer pagar. O medo das câmeras, a vergonha do julgamento e a falta de equipamento travam 90% das pessoas de ganharem dinheiro no TikTok.</p>
-            <p>Mas e se você pudesse ter a retenção visual de um modelo de agência trabalhando para você 24 horas por dia?</p>
-            <p>Neste guia, você vai descobrir o exato workflow (fluxo de trabalho) que me permitiu criar perfis de avatares realistas que bateram números absurdos de forma 100% orgânica. Veja com seus próprios olhos:</p>
-            
-            <div class="img-placeholder">
-                [ INSERIR PRINT AQUI: Análise de Visualizações (102K Views / 6.324 Curtidas) ]
-            </div>
-
-            <div class="img-placeholder">
-                [ INSERIR PRINT AQUI: Análise de Seguidores (2.080 Seguidores / 96% Masculino) ]
+    <section class="proof-section container">
+        <h2 class="animate-up">Números que não mentem.</h2>
+        <p class="animate-up delay-1">O poder do "Motion Control" operando 24 horas por dia no piloto automático.</p>
+        
+        <div class="grid-proofs">
+            <div class="glass-card animate-up delay-1">
+                <img src="WhatsApp Image 2026-04-07 at 16.08.48.jpeg" alt="102 mil visualizações orgânicas">
             </div>
             
-            <p>Você vai aprender a técnica do "Motion Control", as ferramentas secretas da gringa e como automatizar a sua máquina de vendas.</p>
-        </section>
-
-        <section>
-            <h2>🛠️ Capítulo 1: O Arsenal do Arquiteto</h2>
-            <p>Para criar um avatar indetectável, você não precisa de estúdios caros. Precisa apenas empilhar as Inteligências Artificiais corretas. Aqui está o nosso arsenal:</p>
-            <ul>
-                <li><strong>Google Colab (Gratuito):</strong> O seu supercomputador na nuvem. Usaremos ele para rodar códigos pesados de Face Swap (troca de rosto em vídeo) e treinar o rosto do seu avatar sem pagar mensalidades.</li>
-                <li><strong>Tensor.art / Civitai (Freemium):</strong> Plataformas onde você vai gerar as fotos estáticas do seu avatar em qualquer cenário, roupa ou pose, mantendo 100% de consistência.</li>
-                <li><strong>MiniMax (Gratuito/Pago):</strong> A melhor ferramenta atual para clonagem de voz ultra-realista. Esqueça as vozes robóticas do TikTok. O MiniMax traz respiração e emoção.</li>
-                <li><strong>HeyGen (Freemium):</strong> O rei do Lipsync (sincronia labial). Ele vai pegar a foto do seu avatar e fazer a boca mexer exatamente de acordo com o áudio.</li>
-                <li><strong>Kling AI / Runway Gen-3 (Freemium):</strong> Geradores de vídeo a partir de imagem. Excelentes para B-rolls (cenas de apoio) cinematográficos.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>🎭 Capítulo 2: O Clone Visual</h2>
-            <p>O maior erro dos iniciantes é gerar uma imagem numa IA e nunca mais conseguir gerar a mesma pessoa em outro ângulo. O segredo da consistência chama-se <strong>LoRA</strong> (um mini-treinamento de IA focado em um único rosto).</p>
-            
-            <h3>Passo a Passo para criar o rosto:</h3>
-            <ol>
-                <li><strong>Geração do Dataset:</strong> Reúna de 15 a 20 fotos de uma pessoa real (ou um rosto gerado por IA que você comprou direitos). Use fotos de frente, perfil e corpo inteiro, variando roupas e fundos.</li>
-                <li><strong>O Treinamento:</strong> Acesse ferramentas como o Tensor.art ou rode o script Kohya_ss no Google Colab. Suba as suas imagens e defina uma palavra-gatilho (ex: <code>avatar_xyz</code>).</li>
-                <li><strong>A Criação da Cena:</strong> Com o modelo treinado, vá para o gerador de imagens e use este Prompt Mestre:</li>
-            </ol>
-
-            <div class="prompt-box">
-                "RAW photo, portrait of [avatar_xyz], looking directly into the camera lens. Neutral facial expression, studio lighting, hyperrealistic, 8k resolution, highly detailed, photorealistic. Negative prompt: smiling, 3d render, cartoon."
+            <div class="glass-card animate-up delay-2">
+                <img src="WhatsApp Image 2026-04-07 at 16.08.49 (1).jpeg" alt="Crescimento de mais de 2 mil seguidores">
             </div>
-        </section>
-
-        <section>
-            <h2>🎬 Capítulo 3: O Segredo do "Motion Control"</h2>
-            <p>Como criamos vídeos dinâmicos, caminhando ou gesticulando, se o avatar não existe? Usamos a técnica de <strong>Face Swap Dinâmico</strong> (Troca de Rosto em Vídeo).</p>
-            <p>É aqui que o "Efeito Transição" (de um rosto masculino para um avatar feminino) acontece e viraliza.</p>
             
-            <h3>O Workflow do FaceFusion (Via Google Colab):</h3>
-            <ol>
-                <li><strong>O Vídeo Base (Target):</strong> Baixe do TikTok ou YouTube Shorts um vídeo viral de alguém falando para a câmera gesticulando muito. Esse será o nosso "corpo".</li>
-                <li><strong>A Máscara (Source):</strong> Pegue a foto perfeita do rosto do seu Avatar gerada no Capítulo 2.</li>
-                <li><strong>A Mágica:</strong> Abra o FaceFusion no Google Colab (uma ferramenta Open Source gratuita). Faça o upload do Vídeo Base e da Foto do Avatar.</li>
-                <li><strong>Aperte Start:</strong> A IA vai rastrear o rosto do vídeo original em movimento 3D e colar o rosto do seu avatar por cima, frame por frame.</li>
-            </ol>
-        </section>
+            <div class="glass-card animate-up delay-3">
+                <img src="WhatsApp Image 2026-04-07 at 16.08.49.jpeg" alt="Público retido e engajado">
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>🗣️ Capítulo 4: Voz e Lipsync</h2>
-            <p>Um rosto bonito não retém público se a voz for robótica.</p>
-            <ol>
-                <li><strong>A Locução (MiniMax):</strong> Crie um roteiro que prenda a atenção nos primeiros 3 segundos. Insira o texto no MiniMax utilizando uma voz que transmita autoridade ou proximidade.</li>
-                <li><strong>A Sincronia (HeyGen):</strong> Exporte o vídeo mudo que você criou no FaceFusion. Suba este vídeo no HeyGen (Video Translate / Lipsync). Faça o upload do áudio gerado no MiniMax. A IA fará a mágica final.</li>
-            </ol>
-        </section>
+    <section class="product-section">
+        <div class="container product-grid">
+            <div class="product-text">
+                <h3>O Guia Definitivo: Mestres do Avatar</h3>
+                <p>O mercado está saturado de pessoas tentando ser influenciadores com iluminação ruim e muito medo da câmera. Nós pulamos essa etapa.</p>
+                <p>Neste material premium, você vai acessar os bastidores exatos da operação que gera milhões de visualizações usando Inteligência Artificial de ponta.</p>
+                
+                <ul class="feature-list">
+                    <li>O Arsenal Secreto: As IAs gratuitas e pagas que os gigantes usam.</li>
+                    <li>Treinamento de LoRA: Como criar um rosto consistente 100% único.</li>
+                    <li>Face Swap Cinematográfico: Rodando no Google Colab de graça.</li>
+                    <li>Lipsync Perfeito: A estratégia para sincronizar voz e imagem sem falhas.</li>
+                </ul>
+            </div>
+            <div class="glass-card" style="text-align: center; padding: 60px 20px;">
+                <h1 style="font-size: 5rem; margin: 0; opacity: 0.5;">📘</h1>
+                <h3 style="margin-top: 10px;">E-book + Workflows</h3>
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>🚀 Capítulo 5: Edição Retenção Extrema (CapCut)</h2>
-            <p>O TikTok não perdoa vídeos lentos. Seu avatar precisa prender os olhos do usuário na tela.</p>
-            <ul>
-                <li><strong>Hook Visual (Regra dos 3 Segundos):</strong> Comece o vídeo com uma transição agressiva. Exemplo: Comece com o seu rosto real e use o efeito de Glitch ou Swoosh no CapCut para revelar o Avatar.</li>
-                <li><strong>Legendas Dinâmicas:</strong> Nunca poste sem legendas. Use fontes grossas (como The Bold Font), na cor amarela ou branca com sombra preta. Animação palavra por palavra (Word-by-Word).</li>
-                <li><strong>B-Rolls e Efeitos Sonoros:</strong> A cada 4 segundos, mude algo na tela. Dê um leve zoom in, coloque um som de clique (Mouse Click) ou de vento (Whoosh) sempre que uma palavra importante aparecer.</li>
-            </ul>
-        </section>
+    <section class="final-cta" id="comprar">
+        <div class="container">
+            <h2>Pronto para assumir o controle?</h2>
+            <p style="color: var(--text-muted); font-size: 1.2rem;">Tenha acesso imediato ao passo a passo prático.</p>
+            <div class="price-tag">Apenas R$ 47,90</div>
+            <br>
+            <a href="LINK_DA_KIRVANO_AQUI" class="cta-btn">Comprar Acesso Agora</a>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 30px;">🔒 Pagamento 100% seguro. Acesso enviado por e-mail.</p>
+        </div>
+    </section>
 
-        <footer class="cta-box">
-            <h2>💰 O Próximo Nível (A Monetização)</h2>
-            <p>Você agora tem a faca e o queijo na mão. Enquanto a maioria das pessoas tenta gravar vídeos com iluminação ruim e vergonha, você é um maestro operando avatares perfeitos nos bastidores.</p>
-            <p>Use o <strong>TikTok Spark Ads</strong> para impulsionar seus vídeos que já tiverem tração orgânica. Venda infoprodutos, PLRs, seja afiliado ou feche parcerias de publicidade.</p>
-            <p><strong>O Futuro é Faceless. E você chegou antes.</strong></p>
-        </footer>
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-    </div>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-up').forEach((el) => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
