@@ -25,8 +25,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             --text-muted: #86868b;
             --accent: #2997ff; /* Azul Apple */
             --accent-hover: #147ce5;
+            --accent-bright: #00d4ff; /* Cyan vibrante */
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --success: #34c759;
         }
 
         body {
@@ -45,6 +47,11 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
         .animate-up {
             animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
@@ -61,48 +68,94 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             padding: 0 20px;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - OTIMIZADA PARA CRO */
         .hero {
-            min-height: 100vh; /* Alterado para min-height para caber a VSL */
-            padding: 80px 0;
+            min-height: 100vh;
+            padding: 60px 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0d1b2a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(41, 151, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
             font-size: 4.5rem;
             font-weight: 800;
             letter-spacing: -0.05em;
-            margin-bottom: 10px;
-            background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
+            margin-bottom: 15px;
+            background: linear-gradient(180deg, #fff 0%, #2997ff 50%, #00d4ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero .pain-point {
+            font-size: 1.3rem;
+            color: #ff6b6b;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--text-muted);
             font-weight: 300;
-            max-width: 600px;
-            margin-bottom: 30px;
+            max-width: 700px;
+            margin-bottom: 40px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
-        /* VSL PLAYER STYLES */
+        /* VSL PLAYER STYLES - OTIMIZADO */
         .vsl-container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             margin: 0 auto 40px auto;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 40px rgba(41, 151, 255, 0.15); /* Brilho sutil */
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 60px rgba(41, 151, 255, 0.3), 0 0 30px rgba(0, 212, 255, 0.2);
             background-color: #000;
+            position: relative;
+        }
+
+        .vsl-container::after {
+            content: 'Assista até o final';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(41, 151, 255, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10;
+            animation: pulse 2s infinite;
         }
 
         .vsl-video {
@@ -112,29 +165,117 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             outline: none;
         }
 
-        /* Botão Premium */
+        /* Botão Premium - DESTAQUE */
         .cta-btn {
-            background-color: var(--text-light);
-            color: var(--bg-dark);
-            padding: 18px 40px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            background: linear-gradient(135deg, #2997ff 0%, #00d4ff 100%);
+            color: #000;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(41, 151, 255, 0.4);
             display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transform: scale(1.08);
+            box-shadow: 0 15px 60px rgba(41, 151, 255, 0.6);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* SEÇÃO DE COMPARAÇÃO (Novo) */
+        .comparison-section {
+            padding: 80px 0;
+            background-color: #050505;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .comparison-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+        }
+
+        .comparison-card.bad {
+            border-color: #ff6b6b;
+        }
+
+        .comparison-card.good {
+            border-color: var(--success);
+            background: rgba(52, 199, 89, 0.05);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .comparison-card.bad h3 {
+            color: #ff6b6b;
+        }
+
+        .comparison-card.good h3 {
+            color: var(--success);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-card li {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .comparison-card li::before {
+            content: '✕';
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .comparison-card.good li::before {
+            content: '✓';
+            color: var(--success);
         }
 
         /* SEÇÃO DE PROVAS (Glassmorphism) */
         .proof-section {
             padding: 100px 0;
             text-align: center;
+            background-color: #000;
         }
 
         .proof-section h2 {
@@ -194,6 +335,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         .product-text h3 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .product-text p {
@@ -213,6 +355,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             margin-bottom: 15px;
             padding-left: 30px;
             position: relative;
+            color: var(--text-light);
         }
 
         .feature-list li::before {
@@ -221,29 +364,71 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             position: absolute;
             left: 0;
             font-weight: bold;
+            font-size: 1.3rem;
         }
 
-        /* FINAL CTA */
+        /* FINAL CTA - URGÊNCIA */
         .final-cta {
             padding: 120px 0;
             text-align: center;
             background: linear-gradient(180deg, #050505 0%, #111 100%);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .price-tag {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
-            margin: 20px 0;
-            background: -webkit-linear-gradient(45deg, #2997ff, #00f0ff);
+            margin: 30px 0;
+            background: linear-gradient(45deg, #2997ff, #00d4ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .price-original {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+
+        .guarantee {
+            background: rgba(52, 199, 89, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            color: var(--success);
+            font-weight: 600;
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
             .product-grid { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .price-tag { font-size: 3rem; }
+            .cta-btn { padding: 16px 40px; font-size: 1rem; }
         }
     </style>
 </head>
@@ -251,35 +436,70 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     <section class="hero">
         <div class="container">
-            <h1 class="animate-up">O fim da vergonha.</h1>
-            <p class="animate-up delay-1">Viralize e venda no TikTok com avatares realistas.<br>Sem expor o seu rosto. Sem precisar gravar.</p>
+            <div class="pain-point animate-up">Quero gravar vídeos mas tenho vergonha</div>
+            <h1 class="animate-up delay-1">Crie Vídeos Virais Sem Gravar uma Única Cena</h1>
+            <p class="animate-up delay-2">Transforme sua vergonha em lucro. Use Avatares de IA ultra-realistas que falam, gesticulam e vendem por você 24h por dia. Sem mostrar o rosto. Sem câmera. Sem desculpas.</p>
             
-            <div class="vsl-container animate-up delay-2">
+            <div class="vsl-container animate-up delay-3">
                 <video class="vsl-video" controls controlsList="nodownload">
                     <source src="Mestres do Avatar - O Início da Escala_720p_caption (1).mp4" type="video/mp4">
                     Seu navegador não suporta a tag de vídeo.
                 </video>
             </div>
 
-            <a href="#comprar" class="cta-btn animate-up delay-3">Quero dominar o Método</a>
+            <a href="#comprar" class="cta-btn animate-up delay-3">Quero Dominar o Método</a>
         </div>
     </section>
 
-    <section class="proof-section container">
-        <h2 class="animate-up">Números que não mentem.</h2>
-        <p class="animate-up delay-1">O poder do "Motion Control" operando 24 horas por dia no piloto automático.</p>
-        
-        <div class="grid-proofs">
-            <div class="glass-card animate-up delay-1">
-                <img src="WhatsApp Image 2026-04-07 at 18.49.44.jpeg" alt="102 mil visualizações orgânicas">
-            </div>
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="animate-up">Método Tradicional vs. Mestres do Avatar</h2>
             
-            <div class="glass-card animate-up delay-2">
-                <img src="WhatsApp Image 2026-04-07 at 16.08.49 (1).jpeg" alt="Crescimento de mais de 2 mil seguidores">
+            <div class="comparison-grid">
+                <div class="comparison-card bad animate-up delay-1">
+                    <h3>❌ Método Tradicional</h3>
+                    <ul>
+                        <li>Precisa gravar vídeos</li>
+                        <li>Câmera, iluminação, microfone</li>
+                        <li>Meses para primeira visualização</li>
+                        <li>Medo de mostrar o rosto</li>
+                        <li>Sem escala possível</li>
+                        <li>Cansaço mental</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card good animate-up delay-2">
+                    <h3>✓ Mestres do Avatar</h3>
+                    <ul>
+                        <li>Avatar fala por você</li>
+                        <li>Tudo automatizado com IA</li>
+                        <li>Resultados em dias</li>
+                        <li>Anonimato total</li>
+                        <li>Escala ilimitada 24/7</li>
+                        <li>Trabalho inteligente</li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="proof-section">
+        <div class="container">
+            <h2 class="animate-up">Números que Não Mentem</h2>
+            <p class="animate-up delay-1">O poder do "Motion Control" operando 24 horas por dia no piloto automático.</p>
             
-            <div class="glass-card animate-up delay-3">
-                <img src="WhatsApp Image 2026-04-07 at 16.08.49.jpeg" alt="Público retido e engajado">
+            <div class="grid-proofs">
+                <div class="glass-card animate-up delay-1">
+                    <img src="WhatsApp Image 2026-04-07 at 18.49.44.jpeg" alt="102 mil visualizações orgânicas">
+                </div>
+                
+                <div class="glass-card animate-up delay-2">
+                    <img src="WhatsApp Image 2026-04-07 at 16.08.49 (1).jpeg" alt="Crescimento de mais de 2 mil seguidores">
+                </div>
+                
+                <div class="glass-card animate-up delay-3">
+                    <img src="WhatsApp Image 2026-04-07 at 16.08.49.jpeg" alt="Público retido e engajado">
+                </div>
             </div>
         </div>
     </section>
@@ -307,12 +527,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     <section class="final-cta" id="comprar">
         <div class="container">
-            <h2>Pronto para assumir o controle?</h2>
-            <p style="color: var(--text-muted); font-size: 1.2rem;">Tenha acesso imediato ao passo a passo prático.</p>
+            <div class="urgency-badge">Oferta por Tempo Limitado</div>
+            <h2>Pronto para Assumir o Controle?</h2>
+            <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 10px;">Tenha acesso imediato ao passo a passo prático.</p>
+            <div class="price-original">De R$ 97,00</div>
             <div class="price-tag">Apenas R$ 47,90</div>
             <br>
             <a href="https://pay.kirvano.com/4ad74cdf-5183-4adb-b3d9-611b9e9f5531" class="cta-btn">Comprar Acesso Agora</a>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 30px;">🔒 Pagamento 100% seguro. Acesso enviado por e-mail.</p>
+            <div class="guarantee">✓ Garantia de 7 dias: Não gostou? Devolvemos 100% do seu dinheiro.</div>
         </div>
     </section>
 
@@ -335,6 +558,13 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         document.querySelectorAll('.animate-up').forEach((el) => {
             el.style.animationPlayState = 'paused';
             observer.observe(el);
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.cta-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                ttq.track('InitiateCheckout');
+            });
         });
     </script>
 </body>
