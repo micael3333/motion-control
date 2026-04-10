@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mestres do Avatar | O Método Faceless</title>
     
-    <!-- TikTok Pixel Code Start -->
-<script>
+    <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
 var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-
   ttq.load('D7CLDBRC77UF89IGFCS0');
   ttq.page();
 }(window, document, 'ttq');
 </script>
-<!-- TikTok Pixel Code End -->
-    <style>
+<style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
         /* CSS Reset e Variáveis estilo Apple Dark */
@@ -66,7 +63,8 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
         /* HERO SECTION */
         .hero {
-            height: 100vh;
+            min-height: 100vh; /* Alterado para min-height para caber a VSL */
+            padding: 80px 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -90,7 +88,28 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             color: var(--text-muted);
             font-weight: 300;
             max-width: 600px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* VSL PLAYER STYLES */
+        .vsl-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto 40px auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 40px rgba(41, 151, 255, 0.15); /* Brilho sutil */
+            background-color: #000;
+        }
+
+        .vsl-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            outline: none;
         }
 
         /* Botão Premium */
@@ -104,6 +123,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            display: inline-block;
         }
 
         .cta-btn:hover {
@@ -233,7 +253,15 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         <div class="container">
             <h1 class="animate-up">O fim da vergonha.</h1>
             <p class="animate-up delay-1">Viralize e venda no TikTok com avatares realistas.<br>Sem expor o seu rosto. Sem precisar gravar.</p>
-            <a href="#comprar" class="cta-btn animate-up delay-2">Quero dominar o Método</a>
+            
+            <div class="vsl-container animate-up delay-2">
+                <video class="vsl-video" controls controlsList="nodownload">
+                    <source src="Mestres do Avatar - O Início da Escala_720p_caption (1).mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+
+            <a href="#comprar" class="cta-btn animate-up delay-3">Quero dominar o Método</a>
         </div>
     </section>
 
@@ -243,8 +271,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         
         <div class="grid-proofs">
             <div class="glass-card animate-up delay-1">
-                <img src="WhatsApp Image 2026-04-07 at 18.49.44.jpeg
-" alt="102 mil visualizações orgânicas">
+                <img src="WhatsApp Image 2026-04-07 at 18.49.44.jpeg" alt="102 mil visualizações orgânicas">
             </div>
             
             <div class="glass-card animate-up delay-2">
