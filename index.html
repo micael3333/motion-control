@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mestres do Avatar | O Atalho Faceless</title>
+    <title>Mestres do Avatar | Faceless</title>
     
     <script>
     !function (w, d, t) {
@@ -13,133 +13,40 @@
       ttq.load('D7CLDBRC77UF89IGFCS0');
       ttq.page();
     }(window, document, 'ttq');
+    
+    // Dispara ViewContent COM PARÂMETROS para alinhar com o funil vertical
+    ttq.track('ViewContent', {
+        content_type: 'product',
+        content_id: 'mestres_avatar',
+        content_name: 'Ebook_Avatar_Faceless',
+        value: 29.90,
+        currency: 'BRL'
+    });
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-
-        :root {
-            --bg-dark: #000000;
-            --text-light: #f5f5f7;
-            --text-muted: #86868b;
-            --accent: #2997ff;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
-
-        body {
-            margin: 0; padding: 0;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        :root { --bg-dark: #000000; --text-light: #f5f5f7; --text-muted: #86868b; --accent: #2997ff; }
+        body { margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-light); font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .hero { padding: 60px 0 40px 0; text-align: center; }
+        .alert-badge { background: rgba(41, 151, 255, 0.1); color: #2997ff; padding: 8px 16px; border-radius: 20px; font-weight: 600; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(41, 151, 255, 0.2); }
+        .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px auto; }
+        
+        /* Player de Vídeo Responsivo (YouTube/Vimeo/Panda) */
+        .video-wrapper { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; overflow: hidden; max-width: 100%; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 40px rgba(41, 151, 255, 0.15); margin-bottom: 40px; background: #000; }
+        .video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .hero {
-            padding: 80px 0 40px 0;
-            text-align: center;
-            background: radial-gradient(circle at top, #1a1a1a 0%, #000 70%);
-        }
+        /* Galeria de Provas */
+        .proof-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .proof-card { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .proof-card img { width: 100%; border-radius: 8px; display: block; }
 
-        .alert-badge {
-            background: rgba(41, 151, 255, 0.1);
-            color: #2997ff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-            border: 1px solid rgba(41, 151, 255, 0.2);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-        }
-
-        .glass-panel {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: left;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
-        }
-
-        .glass-panel h3 { font-size: 2rem; margin-top: 0; }
-
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-        .feature-list li::before {
-            content: '✅';
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-
-        .cta-box {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .price-strike {
-            color: var(--text-muted);
-            text-decoration: line-through;
-            font-size: 1.2rem;
-        }
-
-        .price-highlight {
-            font-size: 4rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 10px 0;
-        }
-
-        .cta-btn {
-            background: #2997ff;
-            color: #fff;
-            padding: 20px 50px;
-            border-radius: 40px;
-            font-size: 1.2rem;
-            font-weight: 800;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(41, 151, 255, 0.3);
-            margin-bottom: 15px;
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.05);
-            background: #147ce5;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
-            .glass-panel { padding: 25px; }
-        }
+        .cta-box { text-align: center; padding: 40px 0; }
+        .price-highlight { font-size: 4rem; font-weight: 800; color: #fff; margin: 10px 0; }
+        .cta-btn { background: #2997ff; color: #fff; padding: 20px 50px; border-radius: 40px; font-size: 1.2rem; font-weight: 800; text-decoration: none; display: inline-block; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(41, 151, 255, 0.3); margin-bottom: 15px; cursor: pointer; }
+        .cta-btn:hover { transform: scale(1.05); background: #147ce5; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
@@ -151,25 +58,42 @@
             <h1>COMO EU FATUREI ALTO NO TIKTOK SEM NUNCA MOSTRAR MEU ROSTO</h1>
             <p>(E como você pode copiar o meu avatar hoje usando IAs gratuitas e sem censura)</p>
 
-            <div class="glass-panel">
-                <h3>O Arsenal Secreto</h3>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Você não precisa pagar assinaturas em dólar para começar. Este é o exato fluxo de trabalho para criar e monetizar seu Dublê Digital:</p>
-                
-                <ul class="feature-list">
-                    <li><strong>IAs Sem Mensalidade:</strong> A lista das ferramentas gratuitas e sem filtros de censura que os gigantes não revelam.</li>
-                    <li><strong>Criação do Dublê:</strong> Passo a passo para criar um rosto único, impossível de ser bloqueado pelas redes.</li>
-                    <li><strong>Os 5 Prompts Mestres:</strong> Copie e cole os meus comandos exatos para gerar roteiros e vídeos virais.</li>
-                    <li><strong>Monetização Exposta:</strong> 5 caminhos práticos para transformar visualizações em dinheiro na conta (CPA, Afiliados, Monetização TikTok).</li>
-                    <li><strong>Bônus:</strong> Script de FaceSwap de Cinema rodando de graça no Google Colab.</li>
-                </ul>
+            <div class="video-wrapper">
+                <video controls controlsList="nodownload" poster="https://via.placeholder.com/800x450/000000/FFFFFF?text=Clique+para+Assistir">
+                    <source src="Mestres do Avatar - O Início da Escala_720p_caption (1).mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos HTML5.
+                </video>
+            </div>
+
+            <h3 style="margin-bottom: 20px; font-size: 1.8rem;">Os números não mentem:</h3>
+            <div class="proof-gallery">
+                <div class="proof-card">
+                    <img src="WhatsApp Image 2026-04-07 at 18.49.44.jpeg" alt="Faturamento e visualizações">
+                </div>
+                <div class="proof-card">
+                    <img src="WhatsApp Image 2026-04-07 at 16.08.49 (1).jpeg" alt="Gráfico de seguidores">
+                </div>
+                <div class="proof-card">
+                    <img src="WhatsApp Image 2026-04-07 at 16.08.49.jpeg" alt="Prova orgânica">
+                </div>
             </div>
 
             <div class="cta-box" id="oferta">
-                <div class="price-strike">De R$ 97,00 por apenas</div>
+                <div style="color: var(--text-muted); text-decoration: line-through; font-size: 1.2rem;">De R$ 97,00 por apenas</div>
                 <div class="price-highlight">R$ 29,90</div>
                 <p style="color: #34c759; font-weight: 600; margin-bottom: 25px;">Pagamento único. Acesso imediato.</p>
                 
-                <a href="https://pay.kirvano.com/4ad74cdf-5183-4adb-b3d9-611b9e9f5531" class="cta-btn">LIBERAR MEU ACESSO AGORA</a>
+                <a href="https://pay.kirvano.com/4ad74cdf-5183-4adb-b3d9-611b9e9f5531" 
+                   class="cta-btn" 
+                   onclick="ttq.track('InitiateCheckout', { 
+                       content_type: 'product', 
+                       content_id: 'mestres_avatar', 
+                       content_name: 'Ebook_Avatar_Faceless', 
+                       value: 29.90, 
+                       currency: 'BRL' 
+                   });">
+                   LIBERAR MEU ACESSO AGORA
+                </a>
                 
                 <p style="font-size: 0.9rem; color: var(--text-muted);">🔒 Compra 100% segura e garantida.</p>
             </div>
