@@ -3,247 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mestres do Avatar | O Método Faceless</title>
+    <title>Mestres do Avatar | O Atalho Faceless</title>
     
     <script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-  ttq.load('D7CLDBRC77UF89IGFCS0');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-<style>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+      ttq.load('D7CLDBRC77UF89IGFCS0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
-        /* CSS Reset e Variáveis estilo Apple Dark */
         :root {
             --bg-dark: #000000;
             --text-light: #f5f5f7;
             --text-muted: #86868b;
-            --accent: #2997ff; /* Azul Apple */
-            --accent-hover: #147ce5;
+            --accent: #2997ff;
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: var(--bg-dark);
             color: var(--text-light);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Animações Suaves */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-        .animate-up {
-            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
-        /* Container Padrão */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* HERO SECTION */
         .hero {
-            min-height: 100vh; /* Alterado para min-height para caber a VSL */
-            padding: 80px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 80px 0 40px 0;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 70%);
+            background: radial-gradient(circle at top, #1a1a1a 0%, #000 70%);
+        }
+
+        .alert-badge {
+            background: rgba(41, 151, 255, 0.1);
+            color: #2997ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(41, 151, 255, 0.2);
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            letter-spacing: -0.05em;
-            margin-bottom: 10px;
+            line-height: 1.1;
+            margin-bottom: 20px;
             background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--text-muted);
-            font-weight: 300;
-            max-width: 600px;
-            margin-bottom: 30px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* VSL PLAYER STYLES */
-        .vsl-container {
-            max-width: 800px;
-            width: 100%;
+            max-width: 700px;
             margin: 0 auto 40px auto;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 40px rgba(41, 151, 255, 0.15); /* Brilho sutil */
-            background-color: #000;
         }
 
-        .vsl-video {
-            width: 100%;
-            height: auto;
-            display: block;
-            outline: none;
-        }
-
-        /* Botão Premium */
-        .cta-btn {
-            background-color: var(--text-light);
-            color: var(--bg-dark);
-            padding: 18px 40px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-        }
-
-        /* SEÇÃO DE PROVAS (Glassmorphism) */
-        .proof-section {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .proof-section h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .proof-section p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 60px;
-        }
-
-        .grid-proofs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .glass-card {
+        .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
-            padding: 20px;
-            transition: transform 0.3s ease;
+            padding: 40px;
+            text-align: left;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255,255,255,0.3);
-        }
+        .glass-panel h3 { font-size: 2rem; margin-top: 0; }
 
-        .glass-card img {
-            width: 100%;
-            border-radius: 12px;
-            display: block;
-        }
-
-        /* SEÇÃO SOBRE O PRODUTO */
-        .product-section {
-            padding: 100px 0;
-            background-color: #050505;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .product-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .product-text p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        .feature-list { list-style: none; padding: 0; }
         .feature-list li {
             font-size: 1.1rem;
             margin-bottom: 15px;
             padding-left: 30px;
             position: relative;
         }
-
         .feature-list li::before {
-            content: '✓';
-            color: var(--accent);
+            content: '✅';
             position: absolute;
             left: 0;
-            font-weight: bold;
+            top: 2px;
         }
 
-        /* FINAL CTA */
-        .final-cta {
-            padding: 120px 0;
+        .cta-box {
             text-align: center;
-            background: linear-gradient(180deg, #050505 0%, #111 100%);
+            padding: 40px 0;
         }
 
-        .price-tag {
+        .price-strike {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-size: 1.2rem;
+        }
+
+        .price-highlight {
             font-size: 4rem;
             font-weight: 800;
-            margin: 20px 0;
-            background: -webkit-linear-gradient(45deg, #2997ff, #00f0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
+            margin: 10px 0;
         }
 
-        /* Responsividade */
+        .cta-btn {
+            background: #2997ff;
+            color: #fff;
+            padding: 20px 50px;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(41, 151, 255, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background: #147ce5;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.2rem; }
-            .product-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .glass-panel { padding: 25px; }
         }
     </style>
 </head>
@@ -251,91 +146,35 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 
     <section class="hero">
         <div class="container">
-            <h1 class="animate-up">O fim da vergonha.</h1>
-            <p class="animate-up delay-1">Viralize e venda no TikTok com avatares realistas.<br>Sem expor o seu rosto. Sem precisar gravar.</p>
+            <div class="alert-badge">⚡ Perfil Confirmado: Método Desbloqueado</div>
             
-            <div class="vsl-container animate-up delay-2">
-                <video class="vsl-video" controls controlsList="nodownload">
-                    <source src="Mestres do Avatar - O Início da Escala_720p_caption (1).mp4" type="video/mp4">
-                    Seu navegador não suporta a tag de vídeo.
-                </video>
-            </div>
+            <h1>COMO EU FATUREI ALTO NO TIKTOK SEM NUNCA MOSTRAR MEU ROSTO</h1>
+            <p>(E como você pode copiar o meu avatar hoje usando IAs gratuitas e sem censura)</p>
 
-            <a href="#comprar" class="cta-btn animate-up delay-3">Quero dominar o Método</a>
-        </div>
-    </section>
-
-    <section class="proof-section container">
-        <h2 class="animate-up">Números que não mentem.</h2>
-        <p class="animate-up delay-1">O poder do "Motion Control" operando 24 horas por dia no piloto automático.</p>
-        
-        <div class="grid-proofs">
-            <div class="glass-card animate-up delay-1">
-                <img src="WhatsApp Image 2026-04-07 at 18.49.44.jpeg" alt="102 mil visualizações orgânicas">
-            </div>
-            
-            <div class="glass-card animate-up delay-2">
-                <img src="WhatsApp Image 2026-04-07 at 16.08.49 (1).jpeg" alt="Crescimento de mais de 2 mil seguidores">
-            </div>
-            
-            <div class="glass-card animate-up delay-3">
-                <img src="WhatsApp Image 2026-04-07 at 16.08.49.jpeg" alt="Público retido e engajado">
-            </div>
-        </div>
-    </section>
-
-    <section class="product-section">
-        <div class="container product-grid">
-            <div class="product-text">
-                <h3>O Guia Definitivo: Mestres do Avatar</h3>
-                <p>O mercado está saturado de pessoas tentando ser influenciadores com iluminação ruim e muito medo da câmera. Nós pulamos essa etapa.</p>
-                <p>Neste material premium, você vai acessar os bastidores exatos da operação que gera milhões de visualizações usando Inteligência Artificial de ponta.</p>
+            <div class="glass-panel">
+                <h3>O Arsenal Secreto</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Você não precisa pagar assinaturas em dólar para começar. Este é o exato fluxo de trabalho para criar e monetizar seu Dublê Digital:</p>
                 
                 <ul class="feature-list">
-                    <li>O Arsenal Secreto: As IAs gratuitas e pagas que os gigantes usam.</li>
-                    <li>Treinamento de LoRA: Como criar um rosto consistente 100% único.</li>
-                    <li>Face Swap Cinematográfico: Rodando no Google Colab de graça.</li>
-                    <li>Lipsync Perfeito: A estratégia para sincronizar voz e imagem sem falhas.</li>
+                    <li><strong>IAs Sem Mensalidade:</strong> A lista das ferramentas gratuitas e sem filtros de censura que os gigantes não revelam.</li>
+                    <li><strong>Criação do Dublê:</strong> Passo a passo para criar um rosto único, impossível de ser bloqueado pelas redes.</li>
+                    <li><strong>Os 5 Prompts Mestres:</strong> Copie e cole os meus comandos exatos para gerar roteiros e vídeos virais.</li>
+                    <li><strong>Monetização Exposta:</strong> 5 caminhos práticos para transformar visualizações em dinheiro na conta (CPA, Afiliados, Monetização TikTok).</li>
+                    <li><strong>Bônus:</strong> Script de FaceSwap de Cinema rodando de graça no Google Colab.</li>
                 </ul>
             </div>
-            <div class="glass-card" style="text-align: center; padding: 60px 20px;">
-                <h1 style="font-size: 5rem; margin: 0; opacity: 0.5;">📘</h1>
-                <h3 style="margin-top: 10px;">E-book + Workflows</h3>
+
+            <div class="cta-box" id="oferta">
+                <div class="price-strike">De R$ 97,00 por apenas</div>
+                <div class="price-highlight">R$ 29,90</div>
+                <p style="color: #34c759; font-weight: 600; margin-bottom: 25px;">Pagamento único. Acesso imediato.</p>
+                
+                <a href="https://pay.kirvano.com/4ad74cdf-5183-4adb-b3d9-611b9e9f5531" class="cta-btn">LIBERAR MEU ACESSO AGORA</a>
+                
+                <p style="font-size: 0.9rem; color: var(--text-muted);">🔒 Compra 100% segura e garantida.</p>
             </div>
         </div>
     </section>
 
-    <section class="final-cta" id="comprar">
-        <div class="container">
-            <h2>Pronto para assumir o controle?</h2>
-            <p style="color: var(--text-muted); font-size: 1.2rem;">Tenha acesso imediato ao passo a passo prático.</p>
-            <div class="price-tag">Apenas R$ 47,90</div>
-            <br>
-            <a href="https://pay.kirvano.com/4ad74cdf-5183-4adb-b3d9-611b9e9f5531" class="cta-btn">Comprar Acesso Agora</a>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 30px;">🔒 Pagamento 100% seguro. Acesso enviado por e-mail.</p>
-        </div>
-    </section>
-
-    <script>
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-up').forEach((el) => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
